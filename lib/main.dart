@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_course_aug23_provider_session/provider_example1/Counter.dart';
+import 'package:flutter_course_aug23_provider_session/provider_example1/provider_example1.dart';
 import 'package:provider/provider.dart';
 
-class Counter with ChangeNotifier {
-  int _count = 0;
-  int get count => _count;
-
-  void increment() {
-    _count++;
-    notifyListeners();
-  }
-}
 
 void main() {
   runApp(
@@ -24,20 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: Text('Counter App')),
-        body: Center(
-          child: Text(
-            '${context.watch<Counter>().count}',
-            style: Theme.of(context).textTheme.headline4,
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => context.read<Counter>().increment(),
-          tooltip: 'Increment',
-          child: Icon(Icons.add),
-        ),
-      ),
+      home: ProviderExample1(),
     );
   }
 }
